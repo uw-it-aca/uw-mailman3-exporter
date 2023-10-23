@@ -19,4 +19,4 @@ RUN python3 -m venv /app/ &&\
 
 EXPOSE 9091
 
-CMD [ "python", "/app/uw_mailman3_exporter.py" ]
+CMD [ "python", "/app/uw_mailman3_exporter.sh" ]
