@@ -1,4 +1,4 @@
-FROM python:3.9-alpine3.17
+FROM python:3.9-alpine3.17 as uw-mailman3-exporter
 
 ARG USER=acait
 RUN adduser -D $USER
