@@ -2,6 +2,9 @@
 # -*- coding: utf-8 -*-
 
 import requests
+from requests.exceptions import (
+    ConnectTimeout, ConnectionError, RequestException)
+import time
 import parser
 import argparse
 import logging
@@ -30,8 +33,16 @@ if __name__ == '__main__':
         try:
             logging.info(f"waiting on <{url}>")
             response = requests.get(url, timeout=timeout)
-        except requests.exceptions.ConnectTimeout:
-            logging.info(f"request time out after {timeout}")
+        except (ConnectTimeout):
+            logging.info(f"request timeout after {timeout} seconds")
+            pass
+        except (ConnectionError, RequestException) as ex:
+            logging.info(f"request exception: {ex}")
+            time.sleep(5)
+            pass
+        except Exception as ex:
+            logging.info(f"exception: {ex}")
+            time.sleep(5)
             pass
 
         logging.info(f"mailman at <{url}> ready: {response}")
