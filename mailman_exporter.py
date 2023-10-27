@@ -126,8 +126,6 @@ class MailmanExporter:
         logging.debug(f"{path}: content{response.content[:120]}")
         return response.status_code, data
 
-    def _fetch(self, )
-
 
 class MailmanCollector(object):
 
