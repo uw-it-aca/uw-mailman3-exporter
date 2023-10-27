@@ -1,3 +1,0 @@
-[submodule "mailman3_exporter"]
-	path = mailman3_exporter
-	url = https://github.com/rivimey/mailman3_exporter.git
