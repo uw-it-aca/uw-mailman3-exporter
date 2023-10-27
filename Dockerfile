@@ -7,8 +7,7 @@ RUN adduser -D $USER
 
 WORKDIR /app
 
-COPY mailman3_exporter  /app
-COPY scripts/uw_mailman3_exporter.sh /app
+COPY . /app
 
 RUN chown -R ${USER}:${USER} /app
 
@@ -21,4 +20,4 @@ RUN python3 -m venv /app/ &&\
 
 EXPOSE 9091
 
-CMD [ "bash", "/app/uw_mailman3_exporter.sh" ]
+CMD [ "bash", "/app/scripts/uw_mailman3_exporter.sh" ]
